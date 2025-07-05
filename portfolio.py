@@ -57,10 +57,27 @@ st.markdown('''
             margin-left: auto;
             margin-right: auto;
         }
-
+        .profile-image {
+            border-radius: 50%;
+            width: 110%;
+            max-width: 450px;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border: 5px solid #0d6efd;
+            display: block;
+            margin: 10px auto 0 100px;
+        }
+        @media (max-width: 991px) {
+            .profile-image {
+                margin-left: 0 !important;
+            }
+        }
         .center-text {
             text-align: center;
         }
+            
+        
     </style>
 
     <div class="navbar">
@@ -89,24 +106,25 @@ with col1:
             img_base64 = base64.b64encode(img_bytes).decode()
         st.markdown(f'''
             <img src="data:image/jpeg;base64,{img_base64}" 
-                 style="border-radius: 50%; width: 500px; height: 500px; object-fit: cover; 
+                 class="profile-image"
+                 style="border-radius: 50%; width: 500px; height: 400px; object-fit: cover; 
                         border: 5px solid #0d6efd; display: block; margin: 10px auto; margin-left: 100px;" />
         ''', unsafe_allow_html=True)
 
         # Add Social Icons Below Image
         st.markdown("""
-        <div style="text-align: center; margin-top: 40px; margin-left: 150px;">
-            <a href="https://github.com/aunali6783" target="_blank" style="margin-right: 12px;">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="65"/>
+        <div class="social-icons" style="text-align: center; margin-top: 20px; margin-left: 165px;">
+            <a href="https://github.com/aunali6783" target="_blank" style="margin-right: 1px;">
+                <img src="https://images.seeklogo.com/logo-png/50/1/github-icon-logo-png_seeklogo-503247.png" width="40"/>
             </a>
-            <a href="https://linkedin.com/in/aunali6783" target="_blank" style="margin-right: 12px;">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="65"/>
+            <a href="https://www.linkedin.com/in/raja-aun-ali-khan-ab80b1248/" target="_blank" style="margin-right: 1px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="40"/>
             </a>
-            <a href="https://instagram.com/aunali_6783" target="_blank" style="margin-right: 12px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="65"/>
+            <a href="https://www.instagram.com/aunnn_ali_/" target="_blank" style="margin-right: 1px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="40"/>
             </a>
-            <a href="https://facebook.com/aunali6783" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" width="65"/>
+            <a href="https://www.facebook.com/raja.a.ali.1004" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" width="40"/>
             </a>
         </div>
         """, unsafe_allow_html=True)
@@ -118,15 +136,72 @@ with col1:
 # --- Right: Expanded Intro Text ---
 with col2:
     st.markdown("""
-        <h2 style='font-size: 70px; margin-bottom: 0; margin-left: 300px;'>Raja Aun Ali Khan   </h2>
-        <p style='font-size: 25px; margin-top: 70px; margin-left: 200px; margin-right: 150px; text-align: center;'>
-        🚀 I'm an aspiring AI Developer with a strong interest in Artificial Intelligence and Machine Learning.
-Passionate about building smart systems that solve real-world problems using data and code.
-I'm constantly exploring new tools, algorithms, and deep learning frameworks like PyTorch.
-Eager to grow, collaborate, and contribute to impactful tech solutions that make a difference.
-Currently pursuing my BS in Computer Science from FAST NUCES Lahore (2022–2026). 🌟
-        </p>
+        <style>
+        .intro-section {
+            display: flex;
+            flex-direction: column;
+           
+            max-width: 800px;
+            width: 50%;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .resume-btn {
+            margin-top: 5px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .stDownloadButton > button {
+            display: block;
+            margin: 10px auto 0 auto; /* top margin and centered horizontally */
+            background: linear-gradient(90deg, #0d6efd, #00c8ff);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 32px;
+            box-shadow: 0 2px 8px rgba(13,110,253,0.10);
+            transition: background 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        }
+        .stDownloadButton > button:hover {
+            background: linear-gradient(90deg, #00c8ff, #0d6efd);
+            box-shadow: 0 4px 16px rgba(13,110,253,0.18);
+        }
+        </style>
+        <div class="intro-section">
+            <h2 style='font-size:40px; margin-bottom: 0; margin-left: 0; text-align: center;'>Raja Aun Ali Khan</h2>
+            <p style='font-size: 18px; margin-top: 30px; margin-left: 0; margin-right: 0; margin-buttom:0;'>
+            🚀 I'm an aspiring AI Developer with a strong interest in Artificial Intelligence and Machine Learning.<br>
+            Passionate about building smart systems that solve real-world problems using data and code.<br>
+            I'm constantly exploring new tools, algorithms, and deep learning frameworks like PyTorch.<br>
+            Eager to grow, collaborate, and contribute to impactful tech solutions that make a difference.<br>
+            Currently pursuing my BS in Computer Science from FAST NUCES Lahore (2022–2026). 🌟
+            </p>
     """, unsafe_allow_html=True)
+
+    # Add Resume Download Button (centered below paragraph)
+    resume_path = Path("AunAli_Resume.pdf")
+    if resume_path.exists():
+        with open(resume_path, "rb") as f:
+            resume_bytes = f.read()
+        st.markdown('<div class="resume-btn">', unsafe_allow_html=True)
+        st.download_button(
+            label="📄 Download Resume",
+            data=resume_bytes,
+            file_name="Raja_Aun_Ali_Khan_Resume.pdf",
+            mime="application/pdf",
+            key="download_resume_btn"
+        )
+        st.markdown('</div></div>', unsafe_allow_html=True)
+    else:
+        st.markdown('</div>', unsafe_allow_html=True)
+        st.warning("Resume file not found. Please add 'AunAli_Resume.pdf' to the project folder.")
 
 
 
@@ -182,7 +257,7 @@ st.markdown("""
 # About text (markdown or HTML)
 st.markdown("""
 <div class="about-container">
-    <div class="about-title">🧠 About Me</div>
+    <div class="about-title">   About Me</div>
     <div class="about-text">
         I'm <strong>Aun Ali</strong>, an enthusiastic and ambitious AI developer from Pakistan 🇵🇰. <br>
         My core passion lies at the intersection of <strong>Artificial Intelligence</strong> and <strong>Web Development</strong>, where I love building things that can think, predict, and adapt.<br><br>
@@ -258,7 +333,8 @@ skills_html = """
         background-color: #30363d;
         border-radius: 12px;
         height: 32px;
-        width: 1500px;
+        width: 100%;
+        max-width: 500px;
         margin: 0 auto 28px auto;
         overflow: hidden;
         transition: box-shadow 0.3s;
@@ -316,7 +392,7 @@ skills_html = """
         <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
 
         <div class="skill-title">Git & GitHub
-            <img src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' class='product-badge' title='GitHub'/>
+            <img src='https://images.seeklogo.com/logo-png/50/1/github-icon-logo-png_seeklogo-503247.png' class='product-badge' title='GitHub'/>
         </div>
         <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
     </div>
@@ -326,31 +402,319 @@ import streamlit.components.v1 as components
 components.html(skills_html, height=600)
 
 # === EDUCATION SECTION ===
-st.markdown('<a id="education"></a>', unsafe_allow_html=True)
-st.header("🎓 Education")
-st.write("""
-- **BS Computer Science** — FAST NUCES Lahore (2021–2025)
-- Relevant Courses: Machine Learning, Distributed Systems, Deep Learning, Data Structures
-""")
+st.markdown("""
+<style>
+.education-container {
+    background: #161b22;
+    border-radius: 15px;
+    padding: 32px 32px 18px 32px;
+    margin: 40px 0 32px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    color: #c9d1d9;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.edu-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d6efd;
+    margin-bottom: 18px;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+.edu-entry {
+    background: #21262d;
+    border-radius: 10px;
+    padding: 18px 22px 12px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(13,110,253,0.07);
+    transition: box-shadow 0.2s;
+}
+.edu-entry:hover {
+    box-shadow: 0 4px 16px rgba(13,110,253,0.13);
+}
+.edu-entry h4 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+    color: #f0f6fc;
+    font-weight: 600;
+}
+.edu-entry p {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    color: #d0d6dc;
+    line-height: 1.6;
+}
+@media (max-width: 767px) {
+    .education-container {
+        padding: 16px 4px 10px 4px;
+        max-width: 100%;
+    }
+    .edu-title {
+        font-size: 22px;
+        text-align: center;
+    }
+    .edu-entry {
+        padding: 12px 8px 8px 8px;
+    }
+    .edu-entry h4 {
+        font-size: 17px;
+    }
+    .edu-entry p {
+        font-size: 13px;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown(
+    '<div class="education-container">\
+        <div class="edu-title">Education Background</div>\
+        <div class="edu-entry">\
+            <h4>The Trust School, Lahore</h4>\
+            <p>Matric in Science Group | Marks: 1055/1100 | Grade: A+ | 2018–2020</p>\
+        </div>\
+        <div class="edu-entry">\
+            <h4>Government College University (GCU), Lahore</h4>\
+            <p>Intermediate in Pre-Engineering | Marks: 1027/1100 | Grade: A+ | 2020–2022</p>\
+        </div>\
+        <div class="edu-entry">\
+            <h4>FAST NUCES, Lahore</h4>\
+            <p>B.S. in Computer Science | Junior | 6th semester | June 2022 – Ongoing</p>\
+            <p><strong>Relevant Coursework:</strong> Data Structures and Algorithms, Database Systems, Programming Fundamentals, Operating Systems, Object Oriented Programming, Communication and Presentation Skills, Computer Organization and Assembly Language (COAL), Software Design and Analysis, Design and Analysis of Algorithms (DSA), Entrepreneurship.</p>\
+        </div>\
+    </div>',
+    unsafe_allow_html=True
+)
 
 
 # === PROJECTS SECTION ===
-st.markdown('<a id="projects"></a>', unsafe_allow_html=True)
-st.header("🛠 Projects")
 st.markdown("""
-- **Face Recognition System** using PyTorch + FaceNet  
-- **AI-powered 3D Portfolio** with React, Tailwind, and Three.js  
-- **Online Voting System** built using React + Firebase  
-""")
+<style>
+.projects-container {
+    background: #161b22;
+    border-radius: 15px;
+    padding: 32px 32px 18px 32px;
+    margin: 40px 0 32px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    color: #c9d1d9;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.projects-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d6efd;
+    margin-bottom: 18px;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+.project-card {
+    background: #21262d;
+    border-radius: 10px;
+    padding: 18px 22px 12px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(13,110,253,0.07);
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    transition: box-shadow 0.2s;
+}
+.project-card:hover {
+    box-shadow: 0 4px 16px rgba(13,110,253,0.13);
+}
+.project-icon {
+    font-size: 32px;
+    margin-top: 2px;
+    color: #0d6efd;
+    min-width: 36px;
+}
+.project-info {
+    flex: 1;
+}
+.project-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 4px;
+}
+.project-desc {
+    font-size: 15px;
+    color: #d0d6dc;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .projects-container {
+        padding: 16px 4px 10px 4px;
+        max-width: 100%;
+    }
+    .projects-title {
+        font-size: 22px;
+        text-align: center;
+    }
+    .project-card {
+        padding: 12px 8px 8px 8px;
+        gap: 10px;
+    }
+    .project-icon {
+        font-size: 26px;
+        min-width: 28px;
+    }
+    .project-title {
+        font-size: 15px;
+    }
+    .project-desc {
+        font-size: 13px;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="projects-container">
+    <div class="projects-title">Projects</div>
+    <div class="project-card">
+        <div class="project-icon">⚙️</div>
+        <div class="project-info">
+            <div class="project-title">Management System using OOP Concepts</div>
+            <div class="project-desc">A desktop application demonstrating core Object-Oriented Programming principles for efficient management tasks.</div>
+        </div>
+    </div>
+    <div class="project-card">
+        <div class="project-icon">🎮</div>
+        <div class="project-info">
+            <div class="project-title">Snake Game using Assembly Language</div>
+            <div class="project-desc">A classic Snake game built from scratch in Assembly, showcasing low-level programming and graphics handling.</div>
+        </div>
+    </div>
+    <div class="project-card">
+        <div class="project-icon">🗳️</div>
+        <div class="project-info">
+            <div class="project-title">Online Voting System using Concepts of SDA</div>
+            <div class="project-desc">A secure online voting platform leveraging data structures and algorithms for real-time, reliable elections.</div>
+        </div>
+    </div>
+    <div class="project-card">
+        <div class="project-icon">🗄️</div>
+        <div class="project-info">
+            <div class="project-title">Election Management System with Database</div>
+            <div class="project-desc">A full-featured system for managing elections, candidates, and results, backed by a robust database.</div>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 
 # === CONTACT SECTION ===
 st.markdown('<a id="contact"></a>', unsafe_allow_html=True)
-st.header("📬 Contact")
 st.markdown("""
-- 📧 Email: [rajaaunalikhan@gmail.com](mailto:rajaaunalikhan@gmail.com)  
-- 💼 GitHub: [@aunali6783](https://github.com/aunali6783)  
-- 🧠 LinkedIn: [Aun Ali](https://linkedin.com/in/aunali6783)
-""")
+<style>
+.contact-container {
+    background: #161b22;
+    border-radius: 15px;
+    padding: 32px 32px 18px 32px;
+    margin: 40px 0 32px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    color: #c9d1d9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d6efd;
+    margin-bottom: 18px;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #21262d;
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(13,110,253,0.07);
+    transition: box-shadow 0.2s;
+}
+.contact-method:hover {
+    box-shadow: 0 4px 16px rgba(13,110,253,0.13);
+}
+.contact-icon-img {
+    width: 28px;
+    height: 28px;
+    display: block;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(13,110,253,0.10);
+}
+.contact-link {
+    color: #58a6ff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+    word-break: break-all;
+}
+.contact-link:hover {
+    color: #1f6feb;
+    text-decoration: underline;
+}
+.contact-phone {
+    color: #d0d6dc;
+    font-size: 16px;
+    font-weight: 500;
+    word-break: break-all;
+}
+@media (max-width: 767px) {
+    .contact-container {
+        padding: 16px 4px 10px 4px;
+        max-width: 100%;
+    }
+    .contact-title {
+        font-size: 22px;
+        text-align: center;
+    }
+    .contact-method {
+        padding: 10px 8px;
+        gap: 10px;
+    }
+    .contact-icon-img {
+        width: 22px;
+        height: 22px;
+    }
+    .contact-link, .contact-phone {
+        font-size: 14px;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="contact-container">
+    <div class="contact-title">Contact</div>
+    <div class="contact-method">
+        <img class="contact-icon-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail" />
+        <a class="contact-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=rajaaunalikhan@gmail.com" target="_blank">rajaaunalikhan@gmail.com</a>
+    </div>
+    <div class="contact-method">
+        <img class="contact-icon-img" src="https://images.seeklogo.com/logo-png/50/1/github-icon-logo-png_seeklogo-503247.png" alt="GitHub" />
+        <a class="contact-link" href="https://github.com/aunali6783" target="_blank">@aunali6783</a>
+    </div>
+    <div class="contact-method">
+        <img class="contact-icon-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
+        <a class="contact-link" href="https://www.linkedin.com/in/raja-aun-ali-khan-ab80b1248/" target="_blank">LinkedIn: Raja Aun Ali Khan</a>
+    </div>
+    <div class="contact-method">
+        <img class="contact-icon-img" src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone" />
+        <span class="contact-phone">03209486621</span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # --- END MAIN CONTENT ---
 st.markdown('</div>', unsafe_allow_html=True)
